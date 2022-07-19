@@ -31,6 +31,30 @@
     &-form {
       width: 100%;
       margin-top: 1rem;
+
+      .submitBtn {
+        margin-top: 1rem;
+        border: none;
+        outline: none;
+        width: 100%;
+        background: #01b4e4;
+        color: #fff;
+        border-radius: 5px;
+        text-transform: uppercase;
+        padding: 8px;
+        letter-spacing: 2px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .submitBtn:hover {
+        background: transparent;
+        border: 2px solid #01b4e4;
+        color: #01b4e4;
+        padding: 6px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
     }
   }
 }

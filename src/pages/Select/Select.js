@@ -4,6 +4,7 @@ import React from 'react'
 import Category from '../../components/Category/Category'
 import Difficulty from '../../components/Diificulty/Difficulty'
 import Type from '../../components/Type/Type'
+import Number from '../../components/Number/Number'
 
 const Select = () => {
   return (
@@ -15,6 +16,9 @@ const Select = () => {
           <Category />
           <Difficulty />
           <Type />
+          <Number />
+
+          <button className='submitBtn'>submit</button>
         </form>
       </div>
     </div>
