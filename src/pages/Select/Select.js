@@ -18,7 +18,7 @@ const Select = () => {
           <Type />
           <Number />
 
-          <button className='submitBtn'>submit</button>
+          <button className='submitBtn'>Get Started</button>
         </form>
       </div>
     </div>

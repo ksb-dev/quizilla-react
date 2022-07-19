@@ -15,11 +15,11 @@ const Difficulty = () => {
     }
 
     if (difficultyState) {
-      optionsRef.current.style.transform = 'scale(1)'
+      optionsRef.current.style.opacity = '1'
       optionsRef.current.style.pointerEvents = 'all'
       difficultyIcon.current.style.transform = 'rotate(180deg)'
     } else {
-      optionsRef.current.style.transform = 'scale(0)'
+      optionsRef.current.style.opacity = '0'
       optionsRef.current.style.pointerEvents = 'none'
       difficultyIcon.current.style.transform = 'rotate(0deg)'
     }
@@ -36,7 +36,7 @@ const Difficulty = () => {
   const setOption = option => {
     setDifficultyName(option)
 
-    optionsRef.current.style.transform = 'scale(0)'
+    optionsRef.current.style.opacity = '0'
     optionsRef.current.style.pointerEvents = 'none'
     difficultyIcon.current.style.transform = 'rotate(0deg)'
 

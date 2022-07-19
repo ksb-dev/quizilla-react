@@ -15,11 +15,11 @@ const Type = () => {
     }
 
     if (typeState) {
-      optionsRef.current.style.transform = 'scale(1)'
+      optionsRef.current.style.opacity = '1'
       optionsRef.current.style.pointerEvents = 'all'
       typeIcon.current.style.transform = 'rotate(180deg)'
     } else {
-      optionsRef.current.style.transform = 'scale(0)'
+      optionsRef.current.style.opacity = '0'
       optionsRef.current.style.pointerEvents = 'none'
       typeIcon.current.style.transform = 'rotate(0deg)'
     }
@@ -36,7 +36,7 @@ const Type = () => {
   const setOption = option => {
     setTypeName(option)
 
-    optionsRef.current.style.transform = 'scale(0)'
+    optionsRef.current.style.opacity = '0'
     optionsRef.current.style.pointerEvents = 'none'
     typeIcon.current.style.transform = 'rotate(0deg)'
 

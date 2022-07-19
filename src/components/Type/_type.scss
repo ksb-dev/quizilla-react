@@ -13,7 +13,6 @@
     letter-spacing: 1px;
     text-transform: capitalize;
     cursor: pointer;
-    transition: all 0.3s ease;
 
     i {
       transition: all 0.3s ease;
@@ -26,26 +25,31 @@
     box-shadow: 0 2px 5px #000;
     border-radius: 5px;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0 0.5rem;
+    padding-bottom: 0;
     top: 2.8rem;
-    transform: scale(0);
+    opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     z-index: 1;
 
     .option {
       cursor: pointer;
       text-transform: capitalize;
-      padding: 0.3rem 0.5rem;
-      border-radius: 5px;
-      transition: all 0.3s ease;
+      padding: 0.5rem;
       font-size: 0.9rem;
-      color: #393e46;
       letter-spacing: 1px;
+      color: #393e46;
+      border-bottom: 2px solid #ccc;
+      transition: all 0.3s ease;
+    }
+
+    .option:last-child {
+      border-bottom: none;
     }
 
     .option:hover {
-      background: rgb(220, 220, 220);
+      padding-left: 1rem;
     }
   }
 }

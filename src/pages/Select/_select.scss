@@ -37,23 +37,23 @@
         border: none;
         outline: none;
         width: 100%;
-        background: #01b4e4;
+        background: #0d253f;
         color: #fff;
         border-radius: 5px;
-        text-transform: uppercase;
+        text-transform: capitalize;
         padding: 8px;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         font-size: 1rem;
         cursor: pointer;
       }
 
       .submitBtn:hover {
         background: transparent;
-        border: 2px solid #01b4e4;
-        color: #01b4e4;
+        border: 2px solid #0d253f;
+        color: #0d253f;
         padding: 6px;
-        transition: all 0.3s ease;
         font-weight: 500;
+        transition: background 0.3s ease;
       }
     }
   }

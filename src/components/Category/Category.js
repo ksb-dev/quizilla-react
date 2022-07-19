@@ -15,11 +15,11 @@ const Category = () => {
     }
 
     if (categoryState) {
-      optionsRef.current.style.transform = 'scale(1)'
+      optionsRef.current.style.opacity = '1'
       optionsRef.current.style.pointerEvents = 'all'
       categoryIcon.current.style.transform = 'rotate(180deg)'
     } else {
-      optionsRef.current.style.transform = 'scale(0)'
+      optionsRef.current.style.opacity = '0'
       optionsRef.current.style.pointerEvents = 'none'
       categoryIcon.current.style.transform = 'rotate(0deg)'
     }
@@ -36,7 +36,7 @@ const Category = () => {
   const setOption = option => {
     setCategoryName(option)
 
-    optionsRef.current.style.transform = 'scale(0)'
+    optionsRef.current.style.opacity = '0'
     optionsRef.current.style.pointerEvents = 'none'
     categoryIcon.current.style.transform = 'rotate(0deg)'
 
