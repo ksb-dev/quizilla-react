@@ -57,7 +57,7 @@ const Category = () => {
               ? 'input__inner blueBorder'
               : 'input__inner greyBorder'
           }
-          //onClick={() => toggleCategories()}
+          onClick={() => toggleCategories()}
         >
           {/* {!categoryState ? <p>{categoryName}</p> : <p></p>} */}
 
@@ -71,7 +71,7 @@ const Category = () => {
           <i
             ref={categoryIcon}
             className='fa-solid fa-angle-down'
-            onClick={() => toggleCategories()}
+            //onClick={() => toggleCategories()}
           ></i>
         </div>
       </div>

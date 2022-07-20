@@ -4,7 +4,7 @@
   .input {
     position: relative;
     margin-bottom: 2rem;
-    //cursor: pointer;
+    cursor: pointer;
 
     display: flex;
     flex-direction: column;
@@ -44,15 +44,7 @@
 
       i {
         transition: all 0.3s ease;
-        cursor: pointer;
-        background: #393e46;
-        color: #fff;
-        height: 25px;
-        width: 25px;
-        border-radius: 50px;
-        text-align: center;
-        padding-top: 0.3rem;
-        padding-left: 0.05rem;
+        //cursor: pointer;
       }
     }
   }
