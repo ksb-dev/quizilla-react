@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 const Type = () => {
-  const [typeName, setTypeName] = useState('')
+  const [typeName, setTypeName] = useState('type')
   const [typeState, setTypeState] = useState(false)
   const typeRef = useRef(null)
   const optionsRef = useRef(null)
@@ -19,14 +19,14 @@ const Type = () => {
       optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
       typeIcon.current.style.transform = 'rotate(180deg)'
-      // nameRef.current.style.top = '-0.55rem'
-      // nameRef.current.style.fontSize = '0.7rem'
+      nameRef.current.style.top = '-0.55rem'
+      nameRef.current.style.fontSize = '0.7rem'
     } else {
       optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       typeIcon.current.style.transform = 'rotate(0deg)'
-      // nameRef.current.style.top = '0.5rem'
-      // nameRef.current.style.fontSize = '0.9rem'
+      nameRef.current.style.top = '0.5rem'
+      nameRef.current.style.fontSize = '0.9rem'
     }
 
     // Adding click event listener
@@ -36,7 +36,7 @@ const Type = () => {
 
   const toggleCategories = () => {
     setTypeState(!typeState)
-    //setTypeName('type')
+    setTypeName('type')
   }
 
   const setOption = option => {
@@ -45,20 +45,30 @@ const Type = () => {
     optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
     typeIcon.current.style.transform = 'rotate(0deg)'
-    // nameRef.current.style.top = '0.5rem'
-    // nameRef.current.style.fontSize = '0.9rem'
+    nameRef.current.style.top = '0.5rem'
+    nameRef.current.style.fontSize = '0.9rem'
 
     setTypeState(!typeState)
   }
 
   return (
     <div ref={typeRef} className='type'>
-      <div className='input' onClick={() => toggleCategories()}>
-        <p ref={nameRef}>type</p>
+      <div
+        className={typeState ? 'input blueBorder' : 'input greyBorder'}
+        onClick={() => toggleCategories()}
+      >
+        <p ref={nameRef} className={typeState ? 'blueColor' : 'greyColor'}>
+          {typeName}
+        </p>
 
-        <span>{typeName}</span>
-
-        <i ref={typeIcon} className='fa-solid fa-angle-down'></i>
+        <i
+          ref={typeIcon}
+          className={
+            typeState
+              ? ' fa-solid fa-angle-down blueColor'
+              : ' fa-solid fa-angle-down greyColor'
+          }
+        ></i>
       </div>
 
       <div ref={optionsRef} className='options'>

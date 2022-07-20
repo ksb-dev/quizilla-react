@@ -9,20 +9,18 @@
     outline: none;
     letter-spacing: 1px;
     height: 45px;
-    border: 2px solid var(--primary-color);
-    text-align: center;
   }
 
   input:focus {
-    border: 2px solid var(--primary-color);
+    border: 2px solid #01b4e4;
     transition: all 0.3s ease;
   }
 
   ::placeholder {
-    color: var(--primary-color);
+    color: #393e46;
     text-transform: capitalize;
     letter-spacing: 1px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   input:focus::placeholder {
