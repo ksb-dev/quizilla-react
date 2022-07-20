@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 const Category = () => {
-  const [categoryName, setCategoryName] = useState('categories')
+  const [categoryName, setCategoryName] = useState('')
   const [categoryState, setCategoryState] = useState(false)
   const categoryRef = useRef(null)
   const optionsRef = useRef(null)
@@ -19,14 +19,14 @@ const Category = () => {
       optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
       categoryIcon.current.style.transform = 'rotate(180deg)'
-      nameRef.current.style.top = '-0.55rem'
-      nameRef.current.style.fontSize = '0.7rem'
+      // nameRef.current.style.top = '-0.55rem'
+      // nameRef.current.style.fontSize = '0.7rem'
     } else {
       optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       categoryIcon.current.style.transform = 'rotate(0deg)'
-      nameRef.current.style.top = '0.5rem'
-      nameRef.current.style.fontSize = '0.9rem'
+      // nameRef.current.style.top = '0.5rem'
+      // nameRef.current.style.fontSize = '0.9rem'
     }
 
     // Adding click event listener
@@ -36,7 +36,7 @@ const Category = () => {
 
   const toggleCategories = () => {
     setCategoryState(!categoryState)
-    setCategoryName('categories')
+    //setCategoryName('categories')
   }
 
   const setOption = option => {
@@ -45,30 +45,20 @@ const Category = () => {
     optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
     categoryIcon.current.style.transform = 'rotate(0deg)'
-    nameRef.current.style.top = '0.5rem'
-    nameRef.current.style.fontSize = '0.9rem'
+    // nameRef.current.style.top = '0.5rem'
+    // nameRef.current.style.fontSize = '0.9rem'
 
     setCategoryState(!categoryState)
   }
 
   return (
     <div ref={categoryRef} className='category'>
-      <div
-        className={categoryState ? 'input blueBorder' : 'input greyBorder'}
-        onClick={() => toggleCategories()}
-      >
-        <p ref={nameRef} className={categoryState ? 'blueColor' : 'greyColor'}>
-          {categoryName}
-        </p>
+      <div className='input' onClick={() => toggleCategories()}>
+        <p ref={nameRef}>categories</p>
 
-        <i
-          ref={categoryIcon}
-          className={
-            categoryState
-              ? ' fa-solid fa-angle-down blueColor'
-              : ' fa-solid fa-angle-down greyColor'
-          }
-        ></i>
+        <span>{categoryName}</span>
+
+        <i ref={categoryIcon} className='fa-solid fa-angle-down'></i>
       </div>
 
       <div ref={optionsRef} className='options'>

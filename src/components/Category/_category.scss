@@ -5,7 +5,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     background: #fff;
     border-radius: 5px;
     padding: 8px 1rem;
@@ -14,20 +14,31 @@
     height: 45px;
     margin-bottom: 2rem;
     cursor: pointer;
+    border: 2px solid var(--primary-color);
 
     p {
       position: absolute;
       left: 0.5rem;
-      top: 0.5rem;
+      top: -0.55rem;
       background: #fff;
       transition: all 0.3s ease;
-      padding: 0 0.5rem;
-      font-size: 0.9rem;
+      padding: 0 0.2rem;
+      font-size: 0.8rem;
+      color: var(--primary-color);
       backface-visibility: hidden;
+      font-weight: 400;
+    }
+
+    span {
+      font-size: 0.9rem;
+      color: #393e46;
+      width: 100%;
+      text-align: center;
     }
 
     i {
       transition: all 0.3s ease;
+      color: var(--primary-color);
     }
   }
 
@@ -73,7 +84,7 @@
 .blueBorder {
   padding: 6px 1rem;
   box-shadow: none !important;
-  border: 2px solid #01b4e4;
+  border: 2px solid var(--primary-color);
 }
 
 .greyColor {
@@ -81,5 +92,5 @@
 }
 
 .blueColor {
-  color: #01b4e4;
+  color: var(--primary-color);
 }

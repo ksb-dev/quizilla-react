@@ -1,5 +1,5 @@
 .container {
-  background: #01b4e4;
+  background: var(--primary-color);
   min-height: 100vh;
 
   display: flex;
@@ -25,8 +25,8 @@
       letter-spacing: 5px;
       margin-bottom: 1rem;
       font-weight: 500;
-      border-bottom: 2px solid #393e46;
-      color: #393e46;
+      border-bottom: 2px solid var(--primary-color);
+      color: var(--primary-color);
     }
 
     &-form {
@@ -38,7 +38,7 @@
         border: none;
         outline: none;
         width: 100%;
-        background: #393e46;
+        background: var(--primary-color);
         color: #fff;
         border-radius: 5px;
         text-transform: capitalize;
@@ -51,8 +51,8 @@
       }
 
       .submitBtn:hover {
-        background: #515151;
-        transition: background 0.3s ease;
+        background: #176cf5;
+        transition: all 0.3s ease;
       }
     }
   }
