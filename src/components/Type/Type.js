@@ -19,12 +19,14 @@ const Type = () => {
       optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
       typeIcon.current.style.transform = 'rotate(180deg)'
-      nameRef.current.style.top = '-0.7rem'
+      nameRef.current.style.top = '-0.55rem'
+      nameRef.current.style.fontSize = '0.7rem'
     } else {
       optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       typeIcon.current.style.transform = 'rotate(0deg)'
       nameRef.current.style.top = '0.5rem'
+      nameRef.current.style.fontSize = '0.9rem'
     }
 
     // Adding click event listener
@@ -34,6 +36,7 @@ const Type = () => {
 
   const toggleCategories = () => {
     setTypeState(!typeState)
+    setTypeName('type')
   }
 
   const setOption = option => {
@@ -43,6 +46,7 @@ const Type = () => {
     optionsRef.current.style.pointerEvents = 'none'
     typeIcon.current.style.transform = 'rotate(0deg)'
     nameRef.current.style.top = '0.5rem'
+    nameRef.current.style.fontSize = '0.9rem'
 
     setTypeState(!typeState)
   }

@@ -19,12 +19,14 @@ const Difficulty = () => {
       optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
       difficultyIcon.current.style.transform = 'rotate(180deg)'
-      nameRef.current.style.top = '-0.7rem'
+      nameRef.current.style.top = '-0.55rem'
+      nameRef.current.style.fontSize = '0.7rem'
     } else {
       optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       difficultyIcon.current.style.transform = 'rotate(0deg)'
       nameRef.current.style.top = '0.5rem'
+      nameRef.current.style.fontSize = '0.9rem'
     }
 
     // Adding click event listener
@@ -34,6 +36,7 @@ const Difficulty = () => {
 
   const toggleCategories = () => {
     setDifficultyState(!difficultyState)
+    setDifficultyName('difficulty')
   }
 
   const setOption = option => {
@@ -43,6 +46,7 @@ const Difficulty = () => {
     optionsRef.current.style.pointerEvents = 'none'
     difficultyIcon.current.style.transform = 'rotate(0deg)'
     nameRef.current.style.top = '0.5rem'
+    nameRef.current.style.fontSize = '0.9rem'
 
     setDifficultyState(!difficultyState)
   }
