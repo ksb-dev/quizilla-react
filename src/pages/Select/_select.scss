@@ -1,5 +1,5 @@
 .container {
-  background: #01b4e4;
+  background: var(--primary-color);
   min-height: 100vh;
 
   display: flex;
@@ -51,7 +51,7 @@
       }
 
       .submitBtn:hover {
-        background: #515151;
+        background: #24282e;
         transition: background 0.3s ease;
       }
     }

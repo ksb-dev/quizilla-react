@@ -73,7 +73,7 @@
 .blueBorder {
   padding: 6px 1rem;
   box-shadow: none !important;
-  border: 2px solid #01b4e4;
+  border: 2px solid var(--primary-color);
 }
 
 .greyColor {
@@ -81,5 +81,5 @@
 }
 
 .blueColor {
-  color: #01b4e4;
+  color: var(--primary-color);
 }

@@ -12,7 +12,7 @@
   }
 
   input:focus {
-    border: 2px solid #01b4e4;
+    border: 2px solid var(--primary-color);
     transition: all 0.3s ease;
   }
 
