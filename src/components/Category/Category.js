@@ -49,31 +49,22 @@ const Category = () => {
 
   return (
     <div ref={categoryRef} className='category'>
-      <div className='input'>
-        {/* {categoryState && <span>Categories</span>} */}
-        <div
+      <div
+        className={categoryState ? 'input blueBorder' : 'input greyBorder'}
+        onClick={() => toggleCategories()}
+      >
+        <p ref={nameRef} className={categoryState ? 'blueColor' : 'greyColor'}>
+          {categoryName}
+        </p>
+
+        <i
+          ref={categoryIcon}
           className={
             categoryState
-              ? 'input__inner blueBorder'
-              : 'input__inner greyBorder'
+              ? ' fa-solid fa-angle-down blueColor'
+              : ' fa-solid fa-angle-down greyColor'
           }
-          onClick={() => toggleCategories()}
-        >
-          {/* {!categoryState ? <p>{categoryName}</p> : <p></p>} */}
-
-          <p
-            ref={nameRef}
-            className={categoryState ? ' blueColor' : ' greyColor'}
-          >
-            {categoryName}
-          </p>
-
-          <i
-            ref={categoryIcon}
-            className='fa-solid fa-angle-down'
-            //onClick={() => toggleCategories()}
-          ></i>
-        </div>
+        ></i>
       </div>
 
       <div ref={optionsRef} className='options'>

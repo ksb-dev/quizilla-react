@@ -6,6 +6,7 @@ const Type = () => {
   const typeRef = useRef(null)
   const optionsRef = useRef(null)
   const typeIcon = useRef(null)
+  const nameRef = useRef(null)
 
   useEffect(() => {
     const handleOutsideClick = e => {
@@ -15,13 +16,15 @@ const Type = () => {
     }
 
     if (typeState) {
-      optionsRef.current.style.opacity = '1'
+      optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
       typeIcon.current.style.transform = 'rotate(180deg)'
+      nameRef.current.style.top = '-0.7rem'
     } else {
-      optionsRef.current.style.opacity = '0'
+      optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       typeIcon.current.style.transform = 'rotate(0deg)'
+      nameRef.current.style.top = '0.5rem'
     }
 
     // Adding click event listener
@@ -36,27 +39,32 @@ const Type = () => {
   const setOption = option => {
     setTypeName(option)
 
-    optionsRef.current.style.opacity = '0'
+    optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
     typeIcon.current.style.transform = 'rotate(0deg)'
+    nameRef.current.style.top = '0.5rem'
 
     setTypeState(!typeState)
   }
 
   return (
     <div ref={typeRef} className='type'>
-      <div className='input'>
-        {typeState && <span>Type</span>}
-        <div
-          className={
-            typeState ? 'input__inner blueBorder' : 'input__inner greyBorder'
-          }
-          onClick={() => toggleCategories()}
-        >
-          {!typeState ? <p>{typeName}</p> : <p></p>}
+      <div
+        className={typeState ? 'input blueBorder' : 'input greyBorder'}
+        onClick={() => toggleCategories()}
+      >
+        <p ref={nameRef} className={typeState ? 'blueColor' : 'greyColor'}>
+          {typeName}
+        </p>
 
-          <i ref={typeIcon} className='fa-solid fa-angle-down'></i>
-        </div>
+        <i
+          ref={typeIcon}
+          className={
+            typeState
+              ? ' fa-solid fa-angle-down blueColor'
+              : ' fa-solid fa-angle-down greyColor'
+          }
+        ></i>
       </div>
 
       <div ref={optionsRef} className='options'>

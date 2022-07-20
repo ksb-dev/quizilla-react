@@ -6,6 +6,7 @@ const Difficulty = () => {
   const difficultyRef = useRef(null)
   const optionsRef = useRef(null)
   const difficultyIcon = useRef(null)
+  const nameRef = useRef(null)
 
   useEffect(() => {
     const handleOutsideClick = e => {
@@ -15,13 +16,15 @@ const Difficulty = () => {
     }
 
     if (difficultyState) {
-      optionsRef.current.style.opacity = '1'
+      optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
       difficultyIcon.current.style.transform = 'rotate(180deg)'
+      nameRef.current.style.top = '-0.7rem'
     } else {
-      optionsRef.current.style.opacity = '0'
+      optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       difficultyIcon.current.style.transform = 'rotate(0deg)'
+      nameRef.current.style.top = '0.5rem'
     }
 
     // Adding click event listener
@@ -36,29 +39,35 @@ const Difficulty = () => {
   const setOption = option => {
     setDifficultyName(option)
 
-    optionsRef.current.style.opacity = '0'
+    optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
     difficultyIcon.current.style.transform = 'rotate(0deg)'
+    nameRef.current.style.top = '0.5rem'
 
     setDifficultyState(!difficultyState)
   }
 
   return (
     <div ref={difficultyRef} className='difficulty'>
-      <div className='input'>
-        {difficultyState && <span>Difficulty</span>}
-        <div
+      <div
+        className={difficultyState ? 'input blueBorder' : 'input greyBorder'}
+        onClick={() => toggleCategories()}
+      >
+        <p
+          ref={nameRef}
+          className={difficultyState ? 'blueColor' : 'greyColor'}
+        >
+          {difficultyName}
+        </p>
+
+        <i
+          ref={difficultyIcon}
           className={
             difficultyState
-              ? 'input__inner blueBorder'
-              : 'input__inner greyBorder'
+              ? ' fa-solid fa-angle-down blueColor'
+              : ' fa-solid fa-angle-down greyColor'
           }
-          onClick={() => toggleCategories()}
-        >
-          {!difficultyState ? <p>{difficultyName}</p> : <p></p>}
-
-          <i ref={difficultyIcon} className='fa-solid fa-angle-down'></i>
-        </div>
+        ></i>
       </div>
 
       <div ref={optionsRef} className='options'>

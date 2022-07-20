@@ -3,41 +3,29 @@
 
   .input {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: #fff;
+    border-radius: 5px;
+    padding: 8px 1rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    height: 45px;
     margin-bottom: 2rem;
     cursor: pointer;
 
-    display: flex;
-    flex-direction: column;
-
-    span {
+    p {
       position: absolute;
-      top: -0.7rem;
-      left: 1rem;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      color: #01b4e4;
+      left: 0.5rem;
+      top: 0.5rem;
       background: #fff;
+      transition: all 0.3s ease;
+      padding: 0 0.5rem;
     }
 
-    &__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
-      border-radius: 5px;
-      padding: 8px 1rem;
-      letter-spacing: 1px;
-      text-transform: capitalize;
-      height: 45px;
-
-      p {
-        //font-size: 0.8rem;
-        color: #393e46;
-      }
-
-      i {
-        transition: all 0.3s ease;
-      }
+    i {
+      transition: all 0.3s ease;
     }
   }
 
@@ -50,9 +38,9 @@
     padding: 0 0.5rem;
     padding-bottom: 0;
     top: 2.85rem;
-    opacity: 0;
+    transform: scale(0);
     pointer-events: none;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     z-index: 1;
 
     .option {
