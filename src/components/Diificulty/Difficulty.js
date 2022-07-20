@@ -46,6 +46,7 @@ const Difficulty = () => {
   return (
     <div ref={difficultyRef} className='difficulty'>
       <div className='input'>
+        {difficultyState && <span>Difficulty</span>}
         <div
           className={
             difficultyState

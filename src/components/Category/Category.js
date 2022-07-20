@@ -46,6 +46,7 @@ const Category = () => {
   return (
     <div ref={categoryRef} className='category'>
       <div className='input'>
+        {categoryState && <span>Categories</span>}
         <div
           className={
             categoryState

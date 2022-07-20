@@ -46,6 +46,7 @@ const Type = () => {
   return (
     <div ref={typeRef} className='type'>
       <div className='input'>
+        {typeState && <span>Type</span>}
         <div
           className={
             typeState ? 'input__inner blueBorder' : 'input__inner greyBorder'
