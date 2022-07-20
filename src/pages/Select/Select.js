@@ -10,7 +10,7 @@ const Select = () => {
   return (
     <div className='container'>
       <div className='container__inner'>
-        <h2 className='container__inner-title'>Quizilla</h2>
+        <h2 className='container__inner-title'>Quizly</h2>
 
         <form className='container__inner-form'>
           <Category />
