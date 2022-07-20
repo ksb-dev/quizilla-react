@@ -1,21 +1,23 @@
 import React from 'react'
 
 // components
-import Category from '../../components/Category/Category'
-import Difficulty from '../../components/Diificulty/Difficulty'
-import Type from '../../components/Type/Type'
+import Field from '../../components/Field/Field'
 import Number from '../../components/Number/Number'
 
 const Select = () => {
+  const categoryOptions = ['option1', 'option2', 'option3']
+  const difficultyOptions = ['low', 'medium', 'high']
+  const typeOptions = ['MCQ', 'True/False']
+
   return (
     <div className='container'>
       <div className='container__inner'>
         <h2 className='container__inner-title'>Quizly</h2>
 
         <form className='container__inner-form'>
-          <Category />
-          <Difficulty />
-          <Type />
+          <Field defaultState={'categories'} options={categoryOptions} />
+          <Field defaultState={'difficulty'} options={difficultyOptions} />
+          <Field defaultState={'type'} options={typeOptions} />
           <Number />
 
           <button className='submitBtn'>Get Started</button>

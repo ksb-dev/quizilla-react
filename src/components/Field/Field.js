@@ -1,30 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-const Difficulty = () => {
-  const [difficultyName, setDifficultyName] = useState('difficulty')
-  const [difficultyState, setDifficultyState] = useState(false)
-  const difficultyRef = useRef(null)
+const Field = ({ defaultState, options }) => {
+  const [fieldName, setFieldName] = useState(defaultState)
+  const [fieldState, setFieldState] = useState(false)
+  const fieldRef = useRef(null)
   const optionsRef = useRef(null)
-  const difficultyIcon = useRef(null)
+  const fieldIcon = useRef(null)
   const nameRef = useRef(null)
 
   useEffect(() => {
     const handleOutsideClick = e => {
-      if (!difficultyRef.current.contains(e.target)) {
-        setDifficultyState(false)
+      if (!fieldRef.current.contains(e.target)) {
+        setFieldState(false)
       }
     }
 
-    if (difficultyState) {
+    if (fieldState) {
       optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
-      difficultyIcon.current.style.transform = 'rotate(180deg)'
+      fieldIcon.current.style.transform = 'rotate(180deg)'
       nameRef.current.style.top = '-0.55rem'
       nameRef.current.style.fontSize = '0.7rem'
     } else {
       optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
-      difficultyIcon.current.style.transform = 'rotate(0deg)'
+      fieldIcon.current.style.transform = 'rotate(0deg)'
       nameRef.current.style.top = '0.5rem'
       nameRef.current.style.fontSize = '0.9rem'
     }
@@ -32,42 +32,39 @@ const Difficulty = () => {
     // Adding click event listener
     document.addEventListener('click', handleOutsideClick)
     return () => document.removeEventListener('click', handleOutsideClick)
-  }, [difficultyState])
+  }, [fieldState])
 
   const toggleCategories = () => {
-    setDifficultyState(!difficultyState)
-    setDifficultyName('difficulty')
+    setFieldState(!fieldState)
+    setFieldName(defaultState)
   }
 
   const setOption = option => {
-    setDifficultyName(option)
+    setFieldName(option)
 
     optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
-    difficultyIcon.current.style.transform = 'rotate(0deg)'
+    fieldIcon.current.style.transform = 'rotate(0deg)'
     nameRef.current.style.top = '0.5rem'
     nameRef.current.style.fontSize = '0.9rem'
 
-    setDifficultyState(!difficultyState)
+    setFieldState(!fieldState)
   }
 
   return (
-    <div ref={difficultyRef} className='difficulty'>
+    <div ref={fieldRef} className='field'>
       <div
-        className={difficultyState ? 'input blueBorder' : 'input greyBorder'}
+        className={fieldState ? 'input blueBorder' : 'input greyBorder'}
         onClick={() => toggleCategories()}
       >
-        <p
-          ref={nameRef}
-          className={difficultyState ? 'blueColor' : 'greyColor'}
-        >
-          {difficultyName}
+        <p ref={nameRef} className={fieldState ? 'blueColor' : 'greyColor'}>
+          {fieldName}
         </p>
 
         <i
-          ref={difficultyIcon}
+          ref={fieldIcon}
           className={
-            difficultyState
+            fieldState
               ? ' fa-solid fa-angle-down blueColor'
               : ' fa-solid fa-angle-down greyColor'
           }
@@ -75,18 +72,14 @@ const Difficulty = () => {
       </div>
 
       <div ref={optionsRef} className='options'>
-        <p className='option' onClick={() => setOption('low')}>
-          Low
-        </p>
-        <p className='option' onClick={() => setOption('medium')}>
-          Medium
-        </p>
-        <p className='option' onClick={() => setOption('high')}>
-          High
-        </p>
+        {options.map(option => (
+          <p className='option' onClick={() => setOption(option)} key={option}>
+            {option}
+          </p>
+        ))}
       </div>
     </div>
   )
 }
 
-export default Difficulty
+export default Field

@@ -1,4 +1,4 @@
-.difficulty {
+.field {
   position: relative;
 
   .input {
@@ -23,6 +23,7 @@
       transition: all 0.3s ease;
       padding: 0 0.5rem;
       font-size: 0.9rem;
+      backface-visibility: hidden;
     }
 
     i {
@@ -39,7 +40,7 @@
     padding: 0 0.5rem;
     padding-bottom: 0;
     top: 2.8rem;
-    transform: scale(0);
+    transition: scale(0);
     pointer-events: none;
     transition: all 0.3s ease;
     z-index: 1;
@@ -63,4 +64,22 @@
       padding-left: 0.7rem;
     }
   }
+}
+
+.greyBorder {
+  border: 2px solid #ccc;
+}
+
+.blueBorder {
+  padding: 6px 1rem;
+  box-shadow: none !important;
+  border: 2px solid var(--primary-color);
+}
+
+.greyColor {
+  color: #393e46;
+}
+
+.blueColor {
+  color: var(--primary-color);
 }
