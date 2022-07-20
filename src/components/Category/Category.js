@@ -45,13 +45,19 @@ const Category = () => {
 
   return (
     <div ref={categoryRef} className='category'>
-      <div
-        className={categoryState ? 'input blueBorder' : 'input greyBorder'}
-        onClick={() => toggleCategories()}
-      >
-        <p>{categoryName}</p>
+      <div className='input'>
+        <div
+          className={
+            categoryState
+              ? 'input__inner blueBorder'
+              : 'input__inner greyBorder'
+          }
+          onClick={() => toggleCategories()}
+        >
+          {!categoryState ? <p>{categoryName}</p> : <p></p>}
 
-        <i ref={categoryIcon} className='fa-solid fa-angle-down'></i>
+          <i ref={categoryIcon} className='fa-solid fa-angle-down'></i>
+        </div>
       </div>
 
       <div ref={optionsRef} className='options'>

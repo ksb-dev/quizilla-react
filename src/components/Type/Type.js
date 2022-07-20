@@ -45,13 +45,17 @@ const Type = () => {
 
   return (
     <div ref={typeRef} className='type'>
-      <div
-        className={typeState ? 'input blueBorder' : 'input greyBorder'}
-        onClick={() => toggleCategories()}
-      >
-        <p>{typeName}</p>
+      <div className='input'>
+        <div
+          className={
+            typeState ? 'input__inner blueBorder' : 'input__inner greyBorder'
+          }
+          onClick={() => toggleCategories()}
+        >
+          {!typeState ? <p>{typeName}</p> : <p></p>}
 
-        <i ref={typeIcon} className='fa-solid fa-angle-down'></i>
+          <i ref={typeIcon} className='fa-solid fa-angle-down'></i>
+        </div>
       </div>
 
       <div ref={optionsRef} className='options'>

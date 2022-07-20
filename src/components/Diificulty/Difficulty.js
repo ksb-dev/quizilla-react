@@ -45,13 +45,19 @@ const Difficulty = () => {
 
   return (
     <div ref={difficultyRef} className='difficulty'>
-      <div
-        className={difficultyState ? 'input blueBorder' : 'input greyBorder'}
-        onClick={() => toggleCategories()}
-      >
-        <p>{difficultyName}</p>
+      <div className='input'>
+        <div
+          className={
+            difficultyState
+              ? 'input__inner blueBorder'
+              : 'input__inner greyBorder'
+          }
+          onClick={() => toggleCategories()}
+        >
+          {!difficultyState ? <p>{difficultyName}</p> : <p></p>}
 
-        <i ref={difficultyIcon} className='fa-solid fa-angle-down'></i>
+          <i ref={difficultyIcon} className='fa-solid fa-angle-down'></i>
+        </div>
       </div>
 
       <div ref={optionsRef} className='options'>

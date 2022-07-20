@@ -33,11 +33,11 @@
       margin-top: 1rem;
 
       .submitBtn {
-        margin-top: 1rem;
+        margin-top: 2rem;
         border: none;
         outline: none;
         width: 100%;
-        background: #0d253f;
+        background: #393e46;
         color: #fff;
         border-radius: 5px;
         text-transform: capitalize;
@@ -45,14 +45,16 @@
         letter-spacing: 1px;
         font-size: 1rem;
         cursor: pointer;
+        height: 45px;
+        font-weight: 300;
       }
 
       .submitBtn:hover {
         background: transparent;
-        border: 2px solid #0d253f;
-        color: #0d253f;
+        border: 2px solid #393e46;
+        color: #393e46;
         padding: 6px;
-        font-weight: 500;
+        font-weight: 400;
         transition: background 0.3s ease;
       }
     }

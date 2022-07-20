@@ -2,20 +2,31 @@
   position: relative;
 
   .input {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    color: #393e46;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-    text-transform: capitalize;
+    margin-bottom: 2rem;
     cursor: pointer;
 
-    i {
-      transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-radius: 5px;
+      padding: 8px 1rem;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+      height: 45px;
+
+      p {
+        font-size: 0.8rem;
+        color: #393e46;
+      }
+
+      i {
+        transition: all 0.3s ease;
+      }
     }
   }
 
@@ -37,10 +48,10 @@
       cursor: pointer;
       text-transform: capitalize;
       padding: 0.5rem;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       letter-spacing: 1px;
       color: #393e46;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 1px solid #ccc;
       transition: all 0.3s ease;
     }
 
