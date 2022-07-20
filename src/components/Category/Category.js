@@ -6,6 +6,7 @@ const Category = () => {
   const categoryRef = useRef(null)
   const optionsRef = useRef(null)
   const categoryIcon = useRef(null)
+  const nameRef = useRef(null)
 
   useEffect(() => {
     const handleOutsideClick = e => {
@@ -15,13 +16,15 @@ const Category = () => {
     }
 
     if (categoryState) {
-      optionsRef.current.style.opacity = '1'
+      optionsRef.current.style.transform = 'scale(1)'
       optionsRef.current.style.pointerEvents = 'all'
       categoryIcon.current.style.transform = 'rotate(180deg)'
+      nameRef.current.style.top = '-0.7rem'
     } else {
-      optionsRef.current.style.opacity = '0'
+      optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       categoryIcon.current.style.transform = 'rotate(0deg)'
+      nameRef.current.style.top = '0.5rem'
     }
 
     // Adding click event listener
@@ -36,9 +39,10 @@ const Category = () => {
   const setOption = option => {
     setCategoryName(option)
 
-    optionsRef.current.style.opacity = '0'
+    optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
     categoryIcon.current.style.transform = 'rotate(0deg)'
+    nameRef.current.style.top = '0.5rem'
 
     setCategoryState(!categoryState)
   }
@@ -46,18 +50,29 @@ const Category = () => {
   return (
     <div ref={categoryRef} className='category'>
       <div className='input'>
-        {categoryState && <span>Categories</span>}
+        {/* {categoryState && <span>Categories</span>} */}
         <div
           className={
             categoryState
               ? 'input__inner blueBorder'
               : 'input__inner greyBorder'
           }
-          onClick={() => toggleCategories()}
+          //onClick={() => toggleCategories()}
         >
-          {!categoryState ? <p>{categoryName}</p> : <p></p>}
+          {/* {!categoryState ? <p>{categoryName}</p> : <p></p>} */}
 
-          <i ref={categoryIcon} className='fa-solid fa-angle-down'></i>
+          <p
+            ref={nameRef}
+            className={categoryState ? ' blueColor' : ' greyColor'}
+          >
+            {categoryName}
+          </p>
+
+          <i
+            ref={categoryIcon}
+            className='fa-solid fa-angle-down'
+            onClick={() => toggleCategories()}
+          ></i>
         </div>
       </div>
 
