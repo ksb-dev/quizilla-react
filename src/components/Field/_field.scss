@@ -44,6 +44,8 @@
     pointer-events: none;
     transition: all 0.3s ease;
     z-index: 1;
+    max-height: 250px;
+    overflow: auto;
 
     .option {
       cursor: pointer;
@@ -82,4 +84,19 @@
 
 .blueColor {
   color: var(--primary-color);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-right: 2px solid #fff;
+  border-left: 2px solid #fff;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: gray;
+  border-radius: 5px;
 }

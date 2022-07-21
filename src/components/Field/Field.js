@@ -72,11 +72,16 @@ const Field = ({ defaultState, options }) => {
       </div>
 
       <div ref={optionsRef} className='options'>
-        {options.map(option => (
-          <p className='option' onClick={() => setOption(option)} key={option}>
-            {option}
-          </p>
-        ))}
+        {options.length > 0 &&
+          options.map((option, index) => (
+            <p
+              className='option'
+              onClick={() => setOption(option.name)}
+              key={index}
+            >
+              {option.name}
+            </p>
+          ))}
       </div>
     </div>
   )
