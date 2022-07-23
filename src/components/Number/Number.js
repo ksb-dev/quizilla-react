@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useDispatch } from 'react-redux/es/exports'
+import { handleAmountChange } from '../../redux/actions'
 
 const Number = () => {
-  const handleChange = () => {}
+  const dispatch = useDispatch()
+  const handleChange = e => {
+    dispatch(handleAmountChange(e.target.value))
+  }
 
   return (
     <div className='number'>

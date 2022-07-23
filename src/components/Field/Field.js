@@ -1,12 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useDispatch } from 'react-redux/es/exports'
+import {
+  handleCategoryChange,
+  handleDifficultyChange,
+  handleTypeChange,
+  handleAmountChange
+} from '../../redux/actions'
 
-const Field = ({ defaultState, options }) => {
+const Field = ({ defaultState, options, label }) => {
   const [fieldName, setFieldName] = useState(defaultState)
+  const [fieldId, setFieldId] = useState(0)
   const [fieldState, setFieldState] = useState(false)
   const fieldRef = useRef(null)
   const optionsRef = useRef(null)
   const fieldIcon = useRef(null)
   const nameRef = useRef(null)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const handleOutsideClick = e => {
@@ -39,8 +49,9 @@ const Field = ({ defaultState, options }) => {
     setFieldName(defaultState)
   }
 
-  const setOption = option => {
+  const setOption = (option, id) => {
     setFieldName(option)
+    setFieldId(id)
 
     optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
@@ -49,6 +60,20 @@ const Field = ({ defaultState, options }) => {
     nameRef.current.style.fontSize = '0.9rem'
 
     setFieldState(!fieldState)
+
+    switch (label) {
+      case 'category':
+        dispatch(handleCategoryChange(id))
+        break
+      case 'difficulty':
+        dispatch(handleDifficultyChange(id))
+        break
+      case 'type':
+        dispatch(handleTypeChange(id))
+        break
+      default:
+        return
+    }
   }
 
   return (
@@ -78,7 +103,7 @@ const Field = ({ defaultState, options }) => {
           options.map((option, index) => (
             <p
               className='option'
-              onClick={() => setOption(option.name)}
+              onClick={() => setOption(option.name, option.id)}
               key={index}
             >
               {option.name.startsWith('Entertainment')

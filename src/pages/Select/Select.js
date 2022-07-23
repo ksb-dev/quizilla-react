@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 // components
 import Field from '../../components/Field/Field'
@@ -9,6 +10,7 @@ import useAxios from '../../hooks/useAxios'
 
 const Select = () => {
   const { response, error, loading } = useAxios({ url: 'api_category.php' })
+  const navigate = useNavigate()
 
   if (loading) {
     return (
@@ -34,6 +36,7 @@ const Select = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    navigate('/questions')
   }
 
   return (
@@ -45,9 +48,14 @@ const Select = () => {
           <Field
             defaultState={'categories'}
             options={response.trivia_categories}
+            label='category'
           />
-          <Field defaultState={'difficulty'} options={difficultyOptions} />
-          <Field defaultState={'type'} options={typeOptions} />
+          <Field
+            defaultState={'difficulty'}
+            options={difficultyOptions}
+            label='difficulty'
+          />
+          <Field defaultState={'type'} options={typeOptions} label='type' />
           <Number />
 
           <button className='submitBtn'>Get Started</button>
