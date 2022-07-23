@@ -1,6 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import useAxios from '../../hooks/useAxios'
+import { useDispatch } from 'react-redux'
+import { handleScoreChange } from '../../redux/actions'
+import { useNavigate } from 'react-router-dom'
+
+const getRandom = max => {
+  return Math.floor(Math.random() * Math.floor(max))
+}
 
 const Questions = () => {
   const {
@@ -25,13 +32,32 @@ const Questions = () => {
 
   const { response, loading } = useAxios({ url: apiUrl })
   const [questionIndex, setQuestionIndex] = useState(0)
+  const [options, setOptions] = useState([])
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  console.log('question_category : ' + question_category)
-  console.log('question_difficulty : ' + question_difficulty)
-  console.log('question_type : ' + question_type)
-  console.log('amount_of_question : ' + amount_of_question)
+  console.log(options)
 
-  console.log(response)
+  useEffect(() => {
+    if (response.results) {
+      const question = response.results[questionIndex]
+      let answers = [...question.incorrect_answers]
+
+      answers.splice(
+        getRandom(question.incorrect_answers.length),
+        0,
+        question.correct_answer
+      )
+      setOptions(answers)
+    }
+  }, [response, questionIndex])
+
+  // console.log('question_category : ' + question_category)
+  // console.log('question_difficulty : ' + question_difficulty)
+  // console.log('question_type : ' + question_type)
+  // console.log('amount_of_question : ' + amount_of_question)
+
+  // console.log(response)
 
   if (loading) {
     return (
@@ -40,7 +66,19 @@ const Questions = () => {
       </div>
     )
   }
-  console.log(response.results)
+  // console.log(response.results)
+  const handleClickAnswer = e => {
+    const question = response.results[questionIndex]
+    if (e.target.textContent === question.correct_answer) {
+      dispatch(handleScoreChange(score + 1))
+    }
+
+    if (questionIndex + 1 < response.results.length) {
+      setQuestionIndex(questionIndex + 1)
+    } else {
+      navigate('/score')
+    }
+  }
 
   return (
     <div className='questions'>
@@ -48,15 +86,16 @@ const Questions = () => {
         <h2>question {questionIndex + 1}</h2>
         <h3>{response.results[questionIndex].question}</h3>
         <div className='answers'>
-          <p>answer 1</p>
-          <p>answer 2</p>
-          <p>answer 3</p>
-          <p>answer 4</p>
+          {options.map((option, id) => (
+            <p key={id} onClick={handleClickAnswer}>
+              {option}
+            </p>
+          ))}
         </div>
 
         <div className='score'>
           <p>
-            <span>Score :</span> 2 / 6
+            <span>Score :</span> 2 / {response.results.length}
           </p>
         </div>
       </div>

@@ -34,22 +34,22 @@
       font-weight: 400;
       padding: 0 1rem;
       font-size: 1rem;
-      text-align: center;
+      //text-align: center;
     }
 
     .answers {
       padding: 1rem;
-      padding-top: 0;
-      padding-bottom: 0;
       width: 100%;
 
       p {
         border: 2px solid #ccc;
-        margin: 2rem 0;
+        margin: 1rem 0;
         padding: 0.5rem 1rem;
         border-radius: 5px;
         cursor: pointer;
         text-transform: capitalize;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
         //text-align: center;
       }
 
