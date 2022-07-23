@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const useAxios = ({ url }) => {
@@ -14,7 +14,7 @@ const useAxios = ({ url }) => {
         .get(url)
         .then(res => setResponse(res.data))
         .catch(err => setError(err))
-        .finally(() => setLoading(true))
+        .finally(() => setLoading(false))
     }
 
     fetchData()
