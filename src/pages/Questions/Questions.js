@@ -11,7 +11,7 @@ const Questions = () => {
     <div className='questions'>
       <div className='questions__inner'>
         <h2>question 1</h2>
-        <h4>this is question?</h4>
+        <h3>this is question?</h3>
         <div className='answers'>
           <p>answer 1</p>
           <p>answer 2</p>
