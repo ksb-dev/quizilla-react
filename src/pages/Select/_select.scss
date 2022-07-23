@@ -31,11 +31,12 @@
     justify-content: center;
 
     &-title {
-      letter-spacing: 5px;
+      letter-spacing: 2px;
       margin-bottom: 1rem;
       font-weight: 500;
       border-bottom: 2px solid #393e46;
       color: #393e46;
+      padding-bottom: 0;
     }
 
     &-form {
@@ -68,8 +69,9 @@
 }
 
 .loader {
-  border: 10px solid #393e46; /* Light grey */
-  border-top: 10px solid #fff; /* Blue */
+  border: 5px solid #393e46; /* Light grey */
+  border-top: 5px solid #fff; /* Blue */
+
   border-radius: 50%;
   width: 100px;
   height: 100px;
