@@ -1,0 +1,59 @@
+.questions {
+  background: var(--primary-color);
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__inner {
+    width: 350px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      text-transform: capitalize;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    h4 {
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    .answers {
+      padding: 1rem;
+
+      p {
+        border: 2px solid #ccc;
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: capitalize;
+      }
+    }
+
+    .score {
+      p {
+        span {
+          font-weight: 500;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}
