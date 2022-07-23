@@ -58,7 +58,9 @@ const Field = ({ defaultState, options }) => {
         onClick={() => toggleCategories()}
       >
         <p ref={nameRef} className={fieldState ? 'blueColor' : 'greyColor'}>
-          {fieldName}
+          {fieldName.startsWith('Entertainment')
+            ? fieldName.substring(15)
+            : fieldName}
         </p>
 
         <i
@@ -79,7 +81,9 @@ const Field = ({ defaultState, options }) => {
               onClick={() => setOption(option.name)}
               key={index}
             >
-              {option.name}
+              {option.name.startsWith('Entertainment')
+                ? option.name.substring(15)
+                : option.name}
             </p>
           ))}
       </div>

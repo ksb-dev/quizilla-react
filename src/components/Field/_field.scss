@@ -2,8 +2,8 @@
   position: relative;
 
   .input {
-    position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
     background: #fff;
@@ -11,7 +11,7 @@
     padding: 8px 1rem;
     letter-spacing: 1px;
     text-transform: capitalize;
-    height: 45px;
+    min-height: 45px;
     margin-bottom: 2rem;
     cursor: pointer;
 
@@ -22,6 +22,8 @@
       background: #fff;
       transition: all 0.3s ease;
       padding: 0 0.5rem;
+      padding-top: 0.1rem;
+      margin-right: 2rem;
       font-size: 0.9rem;
       backface-visibility: hidden;
     }
