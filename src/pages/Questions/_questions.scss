@@ -36,18 +36,30 @@
 
     .answers {
       padding: 1rem;
+      width: 100%;
 
       p {
         border: 2px solid #ccc;
         margin: 1rem 0;
-        padding: 0.5rem 1rem;
+        padding: 0.2rem 1rem;
         border-radius: 5px;
         cursor: pointer;
         text-transform: capitalize;
       }
+
+      p:hover {
+        background: #ccc;
+        transition: all 0.3s ease;
+      }
     }
 
     .score {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 1.2rem;
+
       p {
         span {
           font-weight: 500;
