@@ -11,7 +11,11 @@ const Select = () => {
   const { response, error, loading } = useAxios({ url: 'api_category.php' })
 
   if (loading) {
-    return <p>Loading</p>
+    return (
+      <div className='loading'>
+        <div className='loader'></div>
+      </div>
+    )
   }
 
   if (error) {
