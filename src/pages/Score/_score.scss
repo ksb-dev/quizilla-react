@@ -1,0 +1,24 @@
+.score {
+  background: var(--primary-color);
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &__inner {
+    width: 350px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
