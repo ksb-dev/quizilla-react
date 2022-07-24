@@ -4,6 +4,7 @@ import useAxios from '../../hooks/useAxios'
 import { useDispatch } from 'react-redux'
 import { handleScoreChange } from '../../redux/actions'
 import { useNavigate } from 'react-router-dom'
+import { decode } from 'html-entities'
 
 const getRandom = max => {
   return Math.floor(Math.random() * Math.floor(max))
@@ -36,7 +37,7 @@ const Questions = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  console.log(options)
+  //console.log(options)
 
   useEffect(() => {
     if (response.results) {
@@ -84,18 +85,18 @@ const Questions = () => {
     <div className='questions'>
       <div className='questions__inner'>
         <h2>question {questionIndex + 1}</h2>
-        <h3>{response.results[questionIndex].question}</h3>
+        <h3>{decode(response.results[questionIndex].question)}</h3>
         <div className='answers'>
           {options.map((option, id) => (
             <p key={id} onClick={handleClickAnswer}>
-              {option}
+              {decode(option)}
             </p>
           ))}
         </div>
 
         <div className='score'>
           <p>
-            <span>Score :</span> 2 / {response.results.length}
+            <span>Score :</span> {score} / {response.results.length}
           </p>
         </div>
       </div>
