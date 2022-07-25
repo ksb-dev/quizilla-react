@@ -71,6 +71,7 @@ const Questions = () => {
           setCounter(30)
 
           if (questionIndex + 1 < response.results.length) {
+            setClicked(0)
             setCorrect(false)
             setQuestionIndex(questionIndex + 1)
           } else {
