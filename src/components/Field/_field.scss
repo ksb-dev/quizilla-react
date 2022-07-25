@@ -15,7 +15,7 @@
     margin-bottom: 2rem;
     cursor: pointer;
 
-    p {
+    span {
       position: absolute;
       left: 0.5rem;
       top: 0.5rem;
@@ -24,8 +24,9 @@
       padding: 0 0.5rem;
       padding-top: 0.1rem;
       margin-right: 2rem;
-      font-size: 0.9rem;
+      font-size: 0rem;
       backface-visibility: hidden;
+      font-weight: 400;
     }
 
     i {
@@ -81,7 +82,7 @@
 }
 
 .greyColor {
-  color: #393e46;
+  color: gray;
 }
 
 .blueColor {

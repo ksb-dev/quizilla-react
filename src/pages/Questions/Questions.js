@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import useAxios from '../../hooks/useAxios'
-import { useDispatch } from 'react-redux'
-import { handleScoreChange } from '../../redux/actions'
+import { handleScoreChange, handleAmountChange } from '../../redux/actions'
 import { useNavigate } from 'react-router-dom'
 import { decode } from 'html-entities'
 
@@ -11,6 +10,15 @@ const getRandom = max => {
 }
 
 const Questions = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleReset = () => {
+    dispatch(handleScoreChange(0))
+    dispatch(handleAmountChange(50))
+    navigate('/')
+  }
+
   const {
     question_category,
     question_difficulty,
@@ -34,10 +42,29 @@ const Questions = () => {
   const { response, loading, error } = useAxios({ url: apiUrl })
   const [questionIndex, setQuestionIndex] = useState(0)
   const [options, setOptions] = useState([])
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const [counter, setCounter] = useState(0)
+  let count = 0
 
-  //console.log(options)
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     count++
+
+  //     if (count <= 30) {
+  //       setCounter(prevCounter => prevCounter + 1)
+  //     } else {
+  //       //clearInterval(interval)
+  //       setCounter(0)
+
+  //       if (questionIndex + 1 < response.results.length) {
+  //         setQuestionIndex(questionIndex + 1)
+  //       } else {
+  //         navigate('/score')
+  //       }
+  //     }
+  //   }, 1000)
+
+  //   return () => clearInterval(interval)
+  // }, [])
 
   useEffect(() => {
     if (response.results) {
@@ -50,6 +77,25 @@ const Questions = () => {
         question.correct_answer
       )
       setOptions(answers)
+
+      const interval = setInterval(() => {
+        count++
+
+        if (count <= 30) {
+          setCounter(prevCounter => prevCounter + 1)
+        } else {
+          //clearInterval(interval)
+          setCounter(0)
+
+          if (questionIndex + 1 < response.results.length) {
+            setQuestionIndex(questionIndex + 1)
+          } else {
+            navigate('/score')
+          }
+        }
+      }, 1000)
+
+      return () => clearInterval(interval)
     }
   }, [response, questionIndex])
 
@@ -69,11 +115,21 @@ const Questions = () => {
   }
 
   if (error) {
-    return <p>Something went wrong!</p>
+    return (
+      <div className='error'>
+        <div className='error__inner'>
+          <p>{error}</p>
+          <p className='again' onClick={() => handleReset()}>
+            Back to home
+          </p>
+        </div>
+      </div>
+    )
   }
 
   // console.log(response.results)
   const handleClickAnswer = e => {
+    setCounter(0)
     const question = response.results[questionIndex]
     if (e.target.textContent === question.correct_answer) {
       dispatch(handleScoreChange(score + 1))
@@ -89,8 +145,15 @@ const Questions = () => {
   return (
     <div className='questions'>
       <div className='questions__inner'>
-        <h2>question {questionIndex + 1}</h2>
-        <h3>{decode(response.results[questionIndex].question)}</h3>
+        <div className='number-timer'>
+          <h2 className='number'>question {questionIndex + 1}</h2>
+          <p className='timer'>
+            timer: <span>{counter}</span>
+          </p>
+        </div>
+        <h3 className='question'>
+          {decode(response.results[questionIndex].question)}
+        </h3>
         <div className='answers'>
           {options.map((option, id) => (
             <p key={id} onClick={handleClickAnswer}>
@@ -100,6 +163,7 @@ const Questions = () => {
         </div>
 
         <div className='score'>
+          <p className='quit'>quit</p>
           <p>
             <span>Score :</span> {score} / {response.results.length}
           </p>

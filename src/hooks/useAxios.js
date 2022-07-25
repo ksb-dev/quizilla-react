@@ -12,8 +12,17 @@ const useAxios = ({ url }) => {
     const fetchData = () => {
       axios
         .get(url)
-        .then(res => setResponse(res.data))
-        .catch(err => setError(err))
+        .then(res => {
+          if (res.data.response_code === 2) {
+            setError('No questions found!')
+            return
+          } else {
+            setResponse(res.data)
+          }
+        })
+        .catch(err => {
+          setError('Couldn not fetch data')
+        })
         .finally(() => setLoading(false))
     }
 

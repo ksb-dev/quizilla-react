@@ -82,11 +82,11 @@ const Field = ({ defaultState, options, label }) => {
         className={fieldState ? 'input blueBorder' : 'input greyBorder'}
         onClick={() => toggleCategories()}
       >
-        <p ref={nameRef} className={fieldState ? 'blueColor' : 'greyColor'}>
+        <span ref={nameRef} className={fieldState ? 'blueColor' : 'greyColor'}>
           {fieldName.startsWith('Entertainment')
             ? fieldName.substring(15)
             : fieldName}
-        </p>
+        </span>
 
         <i
           ref={fieldIcon}

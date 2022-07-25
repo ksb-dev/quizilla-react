@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { handleAmountChange, handleScoreChange } from '../../redux/actions'
 
 // components
 import Field from '../../components/Field/Field'
@@ -11,6 +13,13 @@ import useAxios from '../../hooks/useAxios'
 const Select = () => {
   const { response, error, loading } = useAxios({ url: 'api_category.php' })
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleReset = () => {
+    dispatch(handleScoreChange(0))
+    dispatch(handleAmountChange(50))
+    navigate('/')
+  }
 
   if (loading) {
     return (
@@ -21,7 +30,16 @@ const Select = () => {
   }
 
   if (error) {
-    return <p>Something went wrong!</p>
+    return (
+      <div className='error'>
+        <div className='error__inner'>
+          <p>{error}</p>
+          <p className='again' onClick={() => handleReset()}>
+            Try Again
+          </p>
+        </div>
+      </div>
+    )
   }
 
   const difficultyOptions = [

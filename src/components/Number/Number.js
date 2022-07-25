@@ -12,7 +12,7 @@ const Number = () => {
     <div className='number'>
       <input
         type='number'
-        placeholder='number of questions'
+        placeholder='enter number of questions'
         onChange={handleChange}
       />
     </div>
