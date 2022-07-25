@@ -134,7 +134,9 @@ const Questions = () => {
         </div>
 
         <div className='score-quit'>
-          <p className='quit'>quit</p>
+          <p className='quit' onClick={() => handleReset()}>
+            quit
+          </p>
           <p className='score'>
             <span>Score :</span> {score} / {response.results.length}
           </p>
