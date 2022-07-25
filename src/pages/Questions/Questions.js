@@ -48,8 +48,6 @@ const Questions = () => {
   const [answer, setAnswer] = useState('')
   let count = 30
 
-  console.log(response)
-
   useEffect(() => {
     if (response.results) {
       const question = response.results[questionIndex]
