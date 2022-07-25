@@ -66,7 +66,7 @@
       width: 100%;
 
       p {
-        border: 2px solid #ccc;
+        //border: 2px solid #ccc;
         margin: 1rem 0;
         padding: 0.5rem 1rem;
         border-radius: 5px;
@@ -135,4 +135,14 @@
       }
     }
   }
+}
+
+.correct {
+  border: 2px solid green;
+  color: green;
+}
+
+.incorrect {
+  border: 2px solid red;
+  color: red;
 }

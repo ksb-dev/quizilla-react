@@ -43,8 +43,12 @@ const Questions = () => {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [options, setOptions] = useState([])
   const [counter, setCounter] = useState(30)
-  const [clicked, setClicked] = useState(1)
+  const [clicked, setClicked] = useState(0)
+  const [correct, setCorrect] = useState(false)
+  const [answer, setAnswer] = useState('')
   let count = 30
+
+  console.log(response)
 
   useEffect(() => {
     if (response.results) {
@@ -58,24 +62,24 @@ const Questions = () => {
       )
       setOptions(answers)
 
-      const interval = setInterval(() => {
-        count--
+      // const interval = setInterval(() => {
+      //   count--
 
-        if (count > 0) {
-          setCounter(prevCounter => prevCounter - 1)
-        } else {
-          //clearInterval(interval)
-          setCounter(30)
+      //   if (count > 0) {
+      //     setCounter(prevCounter => prevCounter - 1)
+      //   } else {
+      //     //clearInterval(interval)
+      //     setCounter(30)
 
-          if (questionIndex + 1 < response.results.length) {
-            setQuestionIndex(questionIndex + 1)
-          } else {
-            navigate('/score')
-          }
-        }
-      }, 1000)
+      //     if (questionIndex + 1 < response.results.length) {
+      //       setQuestionIndex(questionIndex + 1)
+      //     } else {
+      //       navigate('/score')
+      //     }
+      //   }
+      // }, 1000)
 
-      return () => clearInterval(interval)
+      //return () => clearInterval(interval)
     }
   }, [response, questionIndex])
 
@@ -103,6 +107,7 @@ const Questions = () => {
   const handleClickNext = e => {
     setCounter(30)
     setClicked(0)
+    setCorrect(false)
 
     if (questionIndex + 1 < response.results.length) {
       setQuestionIndex(questionIndex + 1)
@@ -113,9 +118,19 @@ const Questions = () => {
 
   const handleClickAnswer = e => {
     const question = response.results[questionIndex]
+    setCorrect(true)
+    console.log(
+      e.target.textContent === response.results[questionIndex].correct_answer
+    )
+    console.log(clicked)
 
     if (clicked === 0) {
+      console.log('clicked')
+      console.log(e.target.textContent === question.correct_answer)
+
       setClicked(1)
+
+      setAnswer(e.target.textContent)
 
       if (e.target.textContent === question.correct_answer) {
         dispatch(handleScoreChange(score + 1))
@@ -136,11 +151,38 @@ const Questions = () => {
           {decode(response.results[questionIndex].question)}
         </h3>
         <div className='answers'>
-          {options.map((option, id) => (
-            <p key={id} onClick={e => handleClickAnswer(e)}>
-              {decode(option)}
-            </p>
-          ))}
+          {options.map((option, id) =>
+            correct &&
+            decode(option) ===
+              response.results[questionIndex].correct_answer ? (
+              <p
+                key={id}
+                onClick={e => handleClickAnswer(e)}
+                className='correct'
+              >
+                {decode(option)}
+              </p>
+            ) : correct &&
+              decode(option) !==
+                response.results[questionIndex].correct_answer &&
+              answer === decode(option) ? (
+              <p
+                key={id}
+                onClick={e => handleClickAnswer(e)}
+                className='incorrect'
+              >
+                {decode(option)}
+              </p>
+            ) : (
+              <p
+                key={id}
+                onClick={e => handleClickAnswer(e)}
+                className='greyBorder'
+              >
+                {decode(option)}
+              </p>
+            )
+          )}
         </div>
 
         <div className='score-quit-next'>
