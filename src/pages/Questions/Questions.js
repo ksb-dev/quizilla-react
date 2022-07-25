@@ -43,6 +43,7 @@ const Questions = () => {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [options, setOptions] = useState([])
   const [counter, setCounter] = useState(30)
+  const [clicked, setClicked] = useState(1)
   let count = 30
 
   useEffect(() => {
@@ -99,17 +100,26 @@ const Questions = () => {
     )
   }
 
-  const handleClickAnswer = e => {
+  const handleClickNext = e => {
     setCounter(30)
-    const question = response.results[questionIndex]
-    if (e.target.textContent === question.correct_answer) {
-      dispatch(handleScoreChange(score + 1))
-    }
+    setClicked(0)
 
     if (questionIndex + 1 < response.results.length) {
       setQuestionIndex(questionIndex + 1)
     } else {
       navigate('/score')
+    }
+  }
+
+  const handleClickAnswer = e => {
+    const question = response.results[questionIndex]
+
+    if (clicked === 0) {
+      setClicked(1)
+
+      if (e.target.textContent === question.correct_answer) {
+        dispatch(handleScoreChange(score + 1))
+      }
     }
   }
 
@@ -127,18 +137,21 @@ const Questions = () => {
         </h3>
         <div className='answers'>
           {options.map((option, id) => (
-            <p key={id} onClick={handleClickAnswer}>
+            <p key={id} onClick={e => handleClickAnswer(e)}>
               {decode(option)}
             </p>
           ))}
         </div>
 
-        <div className='score-quit'>
+        <div className='score-quit-next'>
           <p className='quit' onClick={() => handleReset()}>
             quit
           </p>
           <p className='score'>
             <span>Score :</span> {score} / {response.results.length}
+          </p>
+          <p className='next' onClick={handleClickNext}>
+            next
           </p>
         </div>
       </div>
