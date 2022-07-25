@@ -66,7 +66,6 @@
       width: 100%;
 
       p {
-        //border: 2px solid #ccc;
         margin: 1rem 0;
         padding: 0.5rem 1rem;
         border-radius: 5px;
@@ -74,12 +73,23 @@
         text-transform: capitalize;
         letter-spacing: 1px;
         font-size: 0.9rem;
-        //text-align: center;
       }
 
       p:hover {
         background: #ccc;
         transition: all 0.3s ease;
+      }
+
+      .correct,
+      .incorrect {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 0.3rem;
+          right: 0.5rem;
+          font-size: 1.2rem;
+        }
       }
     }
 

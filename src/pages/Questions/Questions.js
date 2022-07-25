@@ -152,6 +152,9 @@ const Questions = () => {
                 onClick={e => handleClickAnswer(e)}
                 className='correct'
               >
+                <span>
+                  <i class='fa-regular fa-circle-check'></i>
+                </span>
                 {decode(option)}
               </p>
             ) : correct &&
@@ -163,6 +166,9 @@ const Questions = () => {
                 onClick={e => handleClickAnswer(e)}
                 className='incorrect'
               >
+                <span>
+                  <i class='fa-regular fa-circle-xmark'></i>
+                </span>
                 {decode(option)}
               </p>
             ) : (
