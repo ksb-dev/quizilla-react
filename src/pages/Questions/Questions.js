@@ -31,7 +31,7 @@ const Questions = () => {
     apiUrl = apiUrl.concat(`&type=${question_type}`)
   }
 
-  const { response, loading } = useAxios({ url: apiUrl })
+  const { response, loading, error } = useAxios({ url: apiUrl })
   const [questionIndex, setQuestionIndex] = useState(0)
   const [options, setOptions] = useState([])
   const dispatch = useDispatch()
@@ -67,6 +67,11 @@ const Questions = () => {
       </div>
     )
   }
+
+  if (error) {
+    return <p>Something went wrong!</p>
+  }
+
   // console.log(response.results)
   const handleClickAnswer = e => {
     const question = response.results[questionIndex]
