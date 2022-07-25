@@ -42,8 +42,8 @@ const Questions = () => {
   const { response, loading, error } = useAxios({ url: apiUrl })
   const [questionIndex, setQuestionIndex] = useState(0)
   const [options, setOptions] = useState([])
-  const [counter, setCounter] = useState(0)
-  let count = 0
+  const [counter, setCounter] = useState(30)
+  let count = 30
 
   useEffect(() => {
     if (response.results) {
@@ -58,13 +58,13 @@ const Questions = () => {
       setOptions(answers)
 
       const interval = setInterval(() => {
-        count++
+        count--
 
-        if (count <= 30) {
-          setCounter(prevCounter => prevCounter + 1)
+        if (count > 0) {
+          setCounter(prevCounter => prevCounter - 1)
         } else {
           //clearInterval(interval)
-          setCounter(0)
+          setCounter(30)
 
           if (questionIndex + 1 < response.results.length) {
             setQuestionIndex(questionIndex + 1)
@@ -100,7 +100,7 @@ const Questions = () => {
   }
 
   const handleClickAnswer = e => {
-    setCounter(0)
+    setCounter(30)
     const question = response.results[questionIndex]
     if (e.target.textContent === question.correct_answer) {
       dispatch(handleScoreChange(score + 1))
