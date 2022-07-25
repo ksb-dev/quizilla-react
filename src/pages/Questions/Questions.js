@@ -62,24 +62,24 @@ const Questions = () => {
       )
       setOptions(answers)
 
-      // const interval = setInterval(() => {
-      //   count--
+      const interval = setInterval(() => {
+        count--
 
-      //   if (count > 0) {
-      //     setCounter(prevCounter => prevCounter - 1)
-      //   } else {
-      //     //clearInterval(interval)
-      //     setCounter(30)
+        if (count > 0) {
+          setCounter(prevCounter => prevCounter - 1)
+        } else {
+          setCounter(30)
 
-      //     if (questionIndex + 1 < response.results.length) {
-      //       setQuestionIndex(questionIndex + 1)
-      //     } else {
-      //       navigate('/score')
-      //     }
-      //   }
-      // }, 1000)
+          if (questionIndex + 1 < response.results.length) {
+            setCorrect(false)
+            setQuestionIndex(questionIndex + 1)
+          } else {
+            navigate('/score')
+          }
+        }
+      }, 1000)
 
-      //return () => clearInterval(interval)
+      return () => clearInterval(interval)
     }
   }, [response, questionIndex])
 
@@ -119,15 +119,8 @@ const Questions = () => {
   const handleClickAnswer = e => {
     const question = response.results[questionIndex]
     setCorrect(true)
-    console.log(
-      e.target.textContent === response.results[questionIndex].correct_answer
-    )
-    console.log(clicked)
 
     if (clicked === 0) {
-      console.log('clicked')
-      console.log(e.target.textContent === question.correct_answer)
-
       setClicked(1)
 
       setAnswer(e.target.textContent)
