@@ -45,27 +45,6 @@ const Questions = () => {
   const [counter, setCounter] = useState(0)
   let count = 0
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     count++
-
-  //     if (count <= 30) {
-  //       setCounter(prevCounter => prevCounter + 1)
-  //     } else {
-  //       //clearInterval(interval)
-  //       setCounter(0)
-
-  //       if (questionIndex + 1 < response.results.length) {
-  //         setQuestionIndex(questionIndex + 1)
-  //       } else {
-  //         navigate('/score')
-  //       }
-  //     }
-  //   }, 1000)
-
-  //   return () => clearInterval(interval)
-  // }, [])
-
   useEffect(() => {
     if (response.results) {
       const question = response.results[questionIndex]
@@ -99,13 +78,6 @@ const Questions = () => {
     }
   }, [response, questionIndex])
 
-  // console.log('question_category : ' + question_category)
-  // console.log('question_difficulty : ' + question_difficulty)
-  // console.log('question_type : ' + question_type)
-  // console.log('amount_of_question : ' + amount_of_question)
-
-  // console.log(response)
-
   if (loading) {
     return (
       <div className='loading'>
@@ -127,7 +99,6 @@ const Questions = () => {
     )
   }
 
-  // console.log(response.results)
   const handleClickAnswer = e => {
     setCounter(0)
     const question = response.results[questionIndex]
@@ -162,9 +133,9 @@ const Questions = () => {
           ))}
         </div>
 
-        <div className='score'>
+        <div className='score-quit'>
           <p className='quit'>quit</p>
-          <p>
+          <p className='score'>
             <span>Score :</span> {score} / {response.results.length}
           </p>
         </div>

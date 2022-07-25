@@ -13,7 +13,7 @@
     width: 350px;
     background: #fff;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2rem 1rem;
     border-radius: 5px;
 
     display: flex;
@@ -26,12 +26,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 1rem;
 
       .number {
         text-transform: capitalize;
         font-weight: 500;
         letter-spacing: 1px;
-        padding-left: 1rem;
+        font-size: 1.2rem;
       }
 
       .timer {
@@ -82,7 +83,7 @@
       }
     }
 
-    .score {
+    .score-quit {
       width: 100%;
       display: flex;
       align-items: center;
@@ -99,7 +100,19 @@
         letter-spacing: 1px;
       }
 
-      p {
+      .quit:hover {
+        background: rgb(202, 0, 0);
+        transition: all 0.3s ease;
+      }
+
+      .score {
+        background: green;
+        color: #fff;
+        padding: 0.5rem 0rem;
+        border-radius: 5px;
+        width: 150px;
+        text-align: center;
+
         span {
           font-weight: 500;
           letter-spacing: 1px;
