@@ -10,7 +10,7 @@ const FinalScore = () => {
 
   const handleReset = () => {
     dispatch(handleScoreChange(0))
-    dispatch(handleAmountChange(50))
+    dispatch(handleAmountChange(10))
     navigate('/')
   }
 
