@@ -2,11 +2,12 @@
   position: relative;
 
   .input {
+    //position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
-    background: #fff;
+    background: #000;
     border-radius: 5px;
     padding: 8px 1rem;
     letter-spacing: 1px;
@@ -15,29 +16,57 @@
     margin-bottom: 2rem;
     cursor: pointer;
 
+    input {
+      width: 100%;
+      padding: 8px 1rem;
+      outline: none;
+      //border: none;
+      border-radius: 5px;
+      min-height: 45px;
+      background: #000;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    ::placeholder {
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    input:focus::placeholder {
+      color: transparent;
+    }
+
     span {
       position: absolute;
       left: 0.5rem;
-      top: 0.5rem;
-      background: #fff;
+      top: 0.7rem;
+      background: #000;
+      border-radius: 5px;
       transition: all 0.3s ease;
       padding: 0 0.5rem;
       padding-top: 0.1rem;
       margin-right: 2rem;
-      font-size: 0rem;
+      font-size: 0.8rem;
       backface-visibility: hidden;
-      font-weight: 400;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
     i {
+      //position: absolute;
       transition: all 0.3s ease;
+      //color: #fff;
+      //right: 1rem;
     }
   }
 
   .options {
     position: absolute;
-    background: #fff;
-    box-shadow: 0 2px 5px #000;
+    background: #000;
+    box-shadow: 0 2px 5px orange;
     border-radius: 5px;
     width: 100%;
     padding: 0;
@@ -47,18 +76,19 @@
     pointer-events: none;
     transition: all 0.3s ease;
     z-index: 1;
-    max-height: 250px;
+    max-height: 228px;
     overflow: auto;
 
     .option {
       cursor: pointer;
       text-transform: capitalize;
-      padding: 0.3rem 0.5rem;
+      padding: 0.7rem;
       font-size: 0.9rem;
       letter-spacing: 1px;
-      color: #393e46;
-      border-bottom: 1px solid #ccc;
+      color: #fff;
+      border-bottom: 1px solid orange;
       transition: all 0.3s ease;
+      //border-radius: 5px;
     }
 
     .option:last-child {
@@ -66,40 +96,42 @@
     }
 
     .option:hover {
-      background: #ccc;
+      background: orange;
+      color: #000;
     }
   }
 }
 
 .greyBorder {
-  border: 2px solid #ccc;
+  border: 2px solid #000;
 }
 
 .blueBorder {
-  padding: 6px 1rem;
+  //padding: 6px 1rem;
   box-shadow: none !important;
-  border: 2px solid var(--primary-color);
+  //box-shadow: 0 0 5px orange !important;
+  border: 2px solid orange;
 }
 
 .greyColor {
-  color: gray;
+  color: #fff;
 }
 
 .blueColor {
-  color: var(--primary-color);
+  color: orange;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-right: 2px solid #fff;
-  border-left: 2px solid #fff;
-  background-clip: padding-box;
+  //border-right: 2px solid #fff;
+  //border-left: 2px solid #fff;
+  //background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  background-color: gray;
+  background-color: #fff;
   border-radius: 5px;
 }

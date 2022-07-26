@@ -8,7 +8,10 @@
 }
 
 .container {
-  background: var(--primary-color);
+  //background: var(--primary-color);
+  background-image: url('../../img/back-1.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   min-height: 100vh;
 
   display: flex;
@@ -19,10 +22,10 @@
   -webkit-tap-highlight-color: transparent;
 
   &__inner {
-    width: 350px;
-    background: #fff;
+    width: 400px;
+    background: rgba(0, 0, 0, 0.7);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1rem 2rem;
     border-radius: 5px;
 
     display: flex;
@@ -34,8 +37,8 @@
       letter-spacing: 2px;
       margin-bottom: 1rem;
       font-weight: 500;
-      border-bottom: 2px solid #393e46;
-      color: #393e46;
+      border-bottom: 2px solid orange;
+      color: orange;
       padding-bottom: 0;
     }
 
@@ -45,11 +48,12 @@
 
       .submitBtn {
         margin-top: 2rem;
+        margin-bottom: 1rem;
         border: none;
         outline: none;
         width: 100%;
-        background: #393e46;
-        color: #fff;
+        background: orange;
+        color: #000;
         border-radius: 5px;
         text-transform: capitalize;
         padding: 8px;
@@ -57,7 +61,7 @@
         font-size: 1rem;
         cursor: pointer;
         height: 45px;
-        font-weight: 300;
+        font-weight: 500;
       }
 
       .submitBtn:hover {
