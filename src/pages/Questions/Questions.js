@@ -153,7 +153,7 @@ const Questions = () => {
                 className='correct'
               >
                 <span>
-                  <i class='fa-regular fa-circle-check'></i>
+                  <i className='fa-regular fa-circle-check'></i>
                 </span>
                 {decode(option)}
               </p>
@@ -167,16 +167,12 @@ const Questions = () => {
                 className='incorrect'
               >
                 <span>
-                  <i class='fa-regular fa-circle-xmark'></i>
+                  <i className='fa-regular fa-circle-xmark'></i>
                 </span>
                 {decode(option)}
               </p>
             ) : (
-              <p
-                key={id}
-                onClick={e => handleClickAnswer(e)}
-                className='greyBorder'
-              >
+              <p key={id} onClick={e => handleClickAnswer(e)} className='other'>
                 {decode(option)}
               </p>
             )

@@ -2,7 +2,6 @@
   position: relative;
 
   .input {
-    //position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -15,29 +14,6 @@
     min-height: 45px;
     margin-bottom: 2rem;
     cursor: pointer;
-
-    input {
-      width: 100%;
-      padding: 8px 1rem;
-      outline: none;
-      //border: none;
-      border-radius: 5px;
-      min-height: 45px;
-      background: #000;
-      color: #fff;
-      letter-spacing: 1px;
-    }
-
-    ::placeholder {
-      text-transform: capitalize;
-      letter-spacing: 1px;
-      color: #fff;
-      font-weight: 300;
-    }
-
-    input:focus::placeholder {
-      color: transparent;
-    }
 
     span {
       position: absolute;
@@ -56,17 +32,14 @@
     }
 
     i {
-      //position: absolute;
       transition: all 0.3s ease;
-      //color: #fff;
-      //right: 1rem;
     }
   }
 
   .options {
     position: absolute;
     background: #000;
-    box-shadow: 0 2px 5px orange;
+    box-shadow: 0 2px 5px gold;
     border-radius: 5px;
     width: 100%;
     padding: 0;
@@ -86,7 +59,7 @@
       font-size: 0.9rem;
       letter-spacing: 1px;
       color: #fff;
-      border-bottom: 1px solid orange;
+      border-bottom: 1px solid gold;
       transition: all 0.3s ease;
       //border-radius: 5px;
     }
@@ -96,7 +69,7 @@
     }
 
     .option:hover {
-      background: orange;
+      background: gold;
       color: #000;
     }
   }
@@ -109,8 +82,7 @@
 .blueBorder {
   //padding: 6px 1rem;
   box-shadow: none !important;
-  //box-shadow: 0 0 5px orange !important;
-  border: 2px solid orange;
+  border: 2px solid gold;
 }
 
 .greyColor {
@@ -118,7 +90,7 @@
 }
 
 .blueColor {
-  color: orange;
+  color: gold;
 }
 
 ::-webkit-scrollbar {
@@ -132,6 +104,6 @@
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  background-color: #fff;
+  background-color: gold;
   border-radius: 5px;
 }

@@ -1,5 +1,7 @@
 .final__score {
-  background: var(--primary-color);
+  background-image: url('../../img/score.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   min-height: 100vh;
 
   display: flex;
@@ -10,10 +12,10 @@
   -webkit-tap-highlight-color: transparent;
 
   &__inner {
-    width: 350px;
-    background: #fff;
+    width: 450px;
+    background: rgba(0, 0, 0, 0.7);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 5px;
 
     display: flex;
@@ -26,11 +28,15 @@
       text-transform: capitalize;
       font-weight: 500;
       font-size: 1.2rem;
+      color: #fff;
+      background: #000;
+      padding: 1rem 2rem;
+      border-radius: 5px;
     }
 
     .again {
-      background: #393e46;
-      color: #fff;
+      background: gold;
+      color: #000;
       border-radius: 5px;
       margin-top: 2rem;
       padding: 0.5rem 1rem;
@@ -40,7 +46,7 @@
     }
 
     .again:hover {
-      background: #24282e;
+      background: rgb(151, 129, 0);
       transition: background 0.3s ease;
     }
   }
