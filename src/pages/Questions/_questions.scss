@@ -10,7 +10,7 @@
   -webkit-tap-highlight-color: transparent;
 
   &__inner {
-    width: 450px;
+    width: 350px;
     background: var(--white);
     margin: 0 auto;
     padding: 2rem;
@@ -46,6 +46,7 @@
         text-align: center;
         text-transform: capitalize;
         letter-spacing: 1px;
+        font-weight: 300;
 
         span {
           display: inline-block;
@@ -77,12 +78,11 @@
         text-transform: capitalize;
         letter-spacing: 1px;
         font-size: 0.9rem;
+        min-width: 45px;
       }
 
       p:hover {
-        //background: gold;
         border: 2px solid var(--dark);
-        //color: #000;
         transition: all 0.3s ease;
       }
 
@@ -111,9 +111,11 @@
         color: var(--white);
         text-transform: capitalize;
         padding: 0.3rem 0.8rem;
-        border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
         cursor: pointer;
         letter-spacing: 1px;
+        font-weight: 300;
       }
 
       .quit:hover {
@@ -125,25 +127,22 @@
         background: var(--blue);
         color: #fff;
         padding: 0.3rem 0rem;
-        border-radius: 5px;
-        width: 140px;
+        width: 122px;
         text-align: center;
+        font-weight: 300;
         letter-spacing: 1px;
-
-        span {
-          font-weight: 500;
-          letter-spacing: 1px;
-        }
       }
 
       .next {
         background: var(--dark);
         color: var(--white);
-        border-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
         padding: 0.3rem 0.8rem;
         letter-spacing: 1px;
         text-transform: capitalize;
         cursor: pointer;
+        font-weight: 300;
       }
 
       .next:hover {

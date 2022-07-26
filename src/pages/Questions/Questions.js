@@ -184,7 +184,8 @@ const Questions = () => {
             quit
           </p>
           <p className='score'>
-            <span>Score :</span> {score} / {response.results.length}
+            <span>Score: </span>
+            {score}/{response.results.length}
           </p>
           <p className='next' onClick={handleClickNext}>
             next
