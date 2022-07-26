@@ -1,7 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { handleAmountChange, handleScoreChange } from '../../redux/actions'
+import {
+  handleAmountChange,
+  handleCategoryChange,
+  handleDifficultyChange,
+  handleScoreChange,
+  handleTypeChange
+} from '../../redux/actions'
 
 // components
 import Field from '../../components/Field/Field'
@@ -18,6 +24,9 @@ const Select = () => {
   const handleReset = () => {
     dispatch(handleScoreChange(0))
     dispatch(handleAmountChange(10))
+    dispatch(handleTypeChange(''))
+    dispatch(handleCategoryChange(''))
+    dispatch(handleDifficultyChange(''))
     navigate('/')
   }
 

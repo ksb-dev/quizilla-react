@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import useAxios from '../../hooks/useAxios'
-import { handleScoreChange, handleAmountChange } from '../../redux/actions'
+import {
+  handleScoreChange,
+  handleAmountChange,
+  handleTypeChange,
+  handleCategoryChange,
+  handleDifficultyChange
+} from '../../redux/actions'
 import { useNavigate } from 'react-router-dom'
 import { decode } from 'html-entities'
 
@@ -16,6 +22,9 @@ const Questions = () => {
   const handleReset = () => {
     dispatch(handleScoreChange(0))
     dispatch(handleAmountChange(10))
+    dispatch(handleTypeChange(''))
+    dispatch(handleCategoryChange(''))
+    dispatch(handleDifficultyChange(''))
     navigate('/')
   }
 
