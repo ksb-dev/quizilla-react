@@ -43,10 +43,12 @@
         color: var(--white);
         border-radius: 5px;
         padding: 0.3rem 0.8rem;
+        padding-top: 0.6rem;
         text-align: center;
         text-transform: capitalize;
         letter-spacing: 1px;
         font-weight: 300;
+        min-height: 45px;
 
         span {
           display: inline-block;
@@ -111,11 +113,13 @@
         color: var(--white);
         text-transform: capitalize;
         padding: 0.3rem 0.8rem;
+        padding-top: 0.6rem;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
         cursor: pointer;
         letter-spacing: 1px;
         font-weight: 300;
+        min-height: 45px;
       }
 
       .quit:hover {
@@ -127,10 +131,12 @@
         background: var(--blue);
         color: #fff;
         padding: 0.3rem 0rem;
+        padding-top: 0.6rem;
         width: 122px;
         text-align: center;
         font-weight: 300;
         letter-spacing: 1px;
+        min-height: 45px;
       }
 
       .next {
@@ -139,10 +145,12 @@
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
         padding: 0.3rem 0.8rem;
+        padding-top: 0.6rem;
         letter-spacing: 1px;
         text-transform: capitalize;
         cursor: pointer;
         font-weight: 300;
+        min-height: 45px;
       }
 
       .next:hover {
