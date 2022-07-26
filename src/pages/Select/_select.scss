@@ -22,7 +22,7 @@
   -webkit-tap-highlight-color: transparent;
 
   &__inner {
-    width: 400px;
+    width: 350px;
     background: rgba(0, 0, 0, 0.7);
     margin: 0 auto;
     padding: 1rem 2rem;
@@ -88,5 +88,15 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and(max-width:640px) {
+  .container {
+    background-image: url('../../img/back-2.jpg');
+
+    &__inner {
+      background: rgba(255, 255, 255, 0.7);
+    }
   }
 }
