@@ -48,6 +48,8 @@ const Questions = () => {
   const [answer, setAnswer] = useState('')
   let count = 30
 
+  console.log(response)
+
   useEffect(() => {
     if (response.results) {
       const question = response.results[questionIndex]
@@ -146,7 +148,7 @@ const Questions = () => {
           {options.map((option, id) =>
             correct &&
             decode(option) ===
-              response.results[questionIndex].correct_answer ? (
+              decode(response.results[questionIndex].correct_answer) ? (
               <p
                 key={id}
                 onClick={e => handleClickAnswer(e)}
@@ -159,7 +161,7 @@ const Questions = () => {
               </p>
             ) : correct &&
               decode(option) !==
-                response.results[questionIndex].correct_answer &&
+                decode(response.results[questionIndex].correct_answer) &&
               answer === decode(option) ? (
               <p
                 key={id}
