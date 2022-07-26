@@ -19,7 +19,9 @@
 }
 
 .error {
-  background: var(--primary-color);
+  background-image: url('../img/error.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   min-height: 100vh;
 
   display: flex;
@@ -31,7 +33,7 @@
 
   &__inner {
     width: 350px;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.7);
     margin: 0 auto;
     padding: 1rem;
     border-radius: 5px;
@@ -43,14 +45,14 @@
 
     p {
       letter-spacing: 1px;
-      color: tomato;
+      color: red;
       font-weight: 500;
       font-size: 1.5rem;
     }
 
     .again {
-      background: #393e46;
-      color: #fff;
+      background: gold;
+      color: #000;
       border-radius: 5px;
       margin-top: 2rem;
       padding: 0.5rem 1rem;
@@ -61,7 +63,7 @@
     }
 
     .again:hover {
-      background: #24282e;
+      background: rgb(151, 129, 0);
       transition: background 0.3s ease;
     }
   }
