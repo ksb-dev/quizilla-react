@@ -15,6 +15,7 @@
     margin: 0 auto;
     padding: 2rem;
     border-radius: 5px;
+    box-shadow: 0 0 5px var(--dark);
 
     display: flex;
     flex-direction: column;
@@ -43,12 +44,12 @@
         color: var(--white);
         border-radius: 5px;
         padding: 0.3rem 0.8rem;
-        padding-top: 0.6rem;
+        padding-top: 0.5rem;
         text-align: center;
         text-transform: capitalize;
         letter-spacing: 1px;
         font-weight: 300;
-        min-height: 45px;
+        min-height: 40px;
 
         span {
           display: inline-block;

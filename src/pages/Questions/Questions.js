@@ -136,7 +136,7 @@ const Questions = () => {
         <div className='number-timer'>
           <h2 className='number'>question {questionIndex + 1}</h2>
           <p className='timer'>
-            timer: <span>{counter}</span>
+            left: <span>{counter}</span>
           </p>
         </div>
         <h3 className='question'>
