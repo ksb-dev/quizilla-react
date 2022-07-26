@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux/es/exports'
 import {
   handleCategoryChange,
   handleDifficultyChange,
-  handleTypeChange,
-  handleAmountChange
+  handleTypeChange
 } from '../../redux/actions'
 
 const Field = ({ defaultState, options, label }) => {
