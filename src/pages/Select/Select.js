@@ -76,7 +76,7 @@ const Select = () => {
           <Field defaultState={'type'} options={typeOptions} label='type' />
           <Number />
 
-          <button className='submitBtn'>Get Started</button>
+          <button className='submitBtn'>start quiz</button>
         </form>
       </div>
     </div>

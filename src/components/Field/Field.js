@@ -35,8 +35,8 @@ const Field = ({ defaultState, options, label }) => {
       optionsRef.current.style.transform = 'scale(0)'
       optionsRef.current.style.pointerEvents = 'none'
       fieldIcon.current.style.transform = 'rotate(0deg)'
-      nameRef.current.style.top = '0.7rem'
-      nameRef.current.style.fontSize = '0.8rem'
+      nameRef.current.style.top = '0.6rem'
+      nameRef.current.style.fontSize = '0.9rem'
     }
 
     // Adding click event listener
@@ -56,8 +56,8 @@ const Field = ({ defaultState, options, label }) => {
     optionsRef.current.style.transform = 'scale(0)'
     optionsRef.current.style.pointerEvents = 'none'
     fieldIcon.current.style.transform = 'rotate(0deg)'
-    nameRef.current.style.top = '0.7rem'
-    nameRef.current.style.fontSize = '0.8rem'
+    nameRef.current.style.top = '0.6rem'
+    nameRef.current.style.fontSize = '0.9rem'
 
     setFieldState(!fieldState)
 
@@ -87,17 +87,6 @@ const Field = ({ defaultState, options, label }) => {
             ? fieldName.substring(15)
             : fieldName}
         </span>
-
-        {/* <input
-          type='text'
-          value={
-            fieldName.startsWith('Entertainment')
-              ? fieldName.substring(15)
-              : fieldName
-          }
-          placeholder={defaultState}
-          className={fieldState ? 'blueBorder' : 'greyBorder'}
-        /> */}
 
         <i
           ref={fieldIcon}

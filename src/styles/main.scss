@@ -15,13 +15,17 @@
 @import '../components/Number/number';
 
 :root {
-  --primary-color: #4285f4;
+  --blue: #4285f4;
+  --white: #fff;
+  --dark: #222831;
+  --grey: #ccc;
+  --red: red;
+  --hover1: #12171d;
+  --hover2: rgb(185, 0, 0);
 }
 
 .error {
-  background-image: url('../img/error.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background: var(--blue);
   min-height: 100vh;
 
   display: flex;
@@ -32,10 +36,10 @@
   -webkit-tap-highlight-color: transparent;
 
   &__inner {
-    width: 350px;
-    background: rgba(0, 0, 0, 0.7);
+    width: 450px;
+    background: var(--white);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 5px;
 
     display: flex;
@@ -51,8 +55,8 @@
     }
 
     .again {
-      background: gold;
-      color: #000;
+      background: var(--dark);
+      color: var(--white);
       border-radius: 5px;
       margin-top: 2rem;
       padding: 0.5rem 1rem;
@@ -63,7 +67,7 @@
     }
 
     .again:hover {
-      background: rgb(151, 129, 0);
+      background: var(--hover1);
       transition: background 0.3s ease;
     }
   }

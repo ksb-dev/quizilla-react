@@ -13,18 +13,18 @@ const useAxios = ({ url }) => {
       axios
         .get(url)
         .then(res => {
-          console.log('res 1', res)
-          if (res.data.response_code === 1 || res.data.response_code === 2) {
-            console.log('res 2', res)
+          //console.log('res 1', res)
+          if (res.data.response_code === 2 || res.data.response_code === 1) {
+            //console.log('res 2', res)
             setError('No questions found!')
             return
           } else {
-            console.log('res 3', res)
+            //console.log('res 3', res)
             setResponse(res.data)
           }
         })
         .catch(err => {
-          console.log('res 4', err)
+          //console.log('res 4', err)
           setError('Couldn not fetch data')
         })
         .finally(() => setLoading(false))

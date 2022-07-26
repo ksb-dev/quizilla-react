@@ -5,24 +5,23 @@
     width: 100%;
     padding: 0.65rem 1rem;
     border-radius: 5px;
-    border: 2px solid #000;
+    border: 2px solid var(--grey);
     outline: none;
     letter-spacing: 1px;
     height: 45px;
-    background: #000;
-    color: #fff;
+    color: var(--dark);
   }
 
   input:focus {
-    border: 2px solid orange;
+    border: 2px solid var(--blue);
     transition: all 0.3s ease;
   }
 
   ::placeholder {
-    color: #fff;
+    color: var(--dark);
     text-transform: capitalize;
     letter-spacing: 1px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   input:focus::placeholder {

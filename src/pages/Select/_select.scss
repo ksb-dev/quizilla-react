@@ -4,16 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../../img/back-1.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background: var(--blue);
   min-height: 100vh;
 }
 
 .container {
-  background-image: url('../../img/back-1.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background: var(--blue);
   min-height: 100vh;
 
   display: flex;
@@ -25,7 +21,7 @@
 
   &__inner {
     width: 450px;
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--white);
     margin: 0 auto;
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -39,8 +35,8 @@
       letter-spacing: 2px;
       margin-bottom: 1rem;
       font-weight: 500;
-      border-bottom: 2px solid gold;
-      color: gold;
+      border-bottom: 2px solid var(--dark);
+      color: var(--dark);
       padding-bottom: 0;
     }
 
@@ -54,8 +50,8 @@
         border: none;
         outline: none;
         width: 100%;
-        background: gold;
-        color: #000;
+        background: var(--dark);
+        color: var(--white);
         border-radius: 5px;
         text-transform: capitalize;
         padding: 8px;
@@ -63,11 +59,11 @@
         font-size: 1rem;
         cursor: pointer;
         height: 45px;
-        font-weight: 500;
+        font-weight: 300;
       }
 
       .submitBtn:hover {
-        background: rgb(151, 129, 0);
+        background: var(--hover1);
         transition: background 0.3s ease;
       }
     }
@@ -75,14 +71,12 @@
 }
 
 .loader {
-  border: 10px solid #000;
-  border-top: 10px solid gold;
-  border-bottom: 10px solid gold;
-  background: rgba(0, 0, 0, 0.7);
+  border: 10px solid var(--dark);
+  border-top: 10px solid var(--white);
+  border-bottom: 10px solid var(--white);
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  padding: 1rem;
   animation: spin 1s linear infinite;
 }
 
