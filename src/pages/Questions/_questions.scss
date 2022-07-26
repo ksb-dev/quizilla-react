@@ -27,8 +27,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem;
-      padding-bottom: 0;
+      padding: 1rem 0;
+      padding-top: 0rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #ccc;
 
       .number {
         text-transform: capitalize;
@@ -85,7 +87,7 @@
       }
 
       p:hover {
-        border: 2px solid var(--dark);
+        box-shadow: 0 0 5px var(--blue);
         transition: all 0.3s ease;
       }
 
@@ -107,24 +109,26 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1.2rem;
+      padding: 0rem;
 
       .quit {
-        background: var(--dark);
+        background: var(--red);
         color: var(--white);
         text-transform: capitalize;
         padding: 0.3rem 0.8rem;
-        padding-top: 0.6rem;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
+        padding-top: 0.5rem;
+        // border-top-left-radius: 5px;
+        // border-bottom-left-radius: 5px;
+        border-radius: 5px;
+        box-shadow: 0 0 3px red;
         cursor: pointer;
         letter-spacing: 1px;
         font-weight: 300;
-        min-height: 45px;
+        min-height: 40px;
       }
 
       .quit:hover {
-        background: var(--hover1);
+        background: var(--hover2);
         transition: all 0.3s ease;
       }
 
@@ -132,26 +136,30 @@
         background: var(--blue);
         color: #fff;
         padding: 0.3rem 0rem;
-        padding-top: 0.6rem;
+        padding-top: 0.5rem;
         width: 122px;
         text-align: center;
         font-weight: 300;
         letter-spacing: 1px;
-        min-height: 45px;
+        min-height: 40px;
+        border-radius: 5px;
+        box-shadow: 0 0 3px var(--blue);
       }
 
       .next {
         background: var(--dark);
         color: var(--white);
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
+        // border-top-right-radius: 5px;
+        // border-bottom-right-radius: 5px;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #000;
         padding: 0.3rem 0.8rem;
-        padding-top: 0.6rem;
+        padding-top: 0.5rem;
         letter-spacing: 1px;
         text-transform: capitalize;
         cursor: pointer;
         font-weight: 300;
-        min-height: 45px;
+        min-height: 40px;
       }
 
       .next:hover {
@@ -164,17 +172,20 @@
 
 .correct {
   background: green;
-  border: 2px solid green;
+  //border: 2px solid green;
+  box-shadow: 0 0 5px green;
   color: #fff;
 }
 
 .incorrect {
-  border: 2px solid red;
+  //border: 2px solid red;
   background: red;
+  box-shadow: 0 0 5px red;
   color: #fff;
 }
 
 .other {
-  border: 2px solid var(--grey);
+  //border: 2px solid var(--grey);
+  box-shadow: 0 0 3px #000;
   color: var(--dark);
 }
